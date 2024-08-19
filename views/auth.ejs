@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up / Log In</title>
+  <link rel="stylesheet" href="/styles/auth.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,700&display=swap" rel="stylesheet">
+  <script src="/scripts/auth.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, pink 40%, red 100%);
+    }
+
+    header {
+      background-color: #f8f9fa;
+      padding: 10px 20px;
+      border-bottom: 4px solid #d81b60;
+      box-shadow: 0 1px 0 #b71c1c;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 70px;
+      margin-right: 10px;
+      margin-bottom: 13px;
+    }
+
+    .header-logo h1 {
+      font-family: 'Quantico', sans-serif;
+    }
+
+    .header-logo .trade {
+      color: black;
+      animation: colorChangeTrade .5s forwards;
+    }
+
+    .header-logo .sphere {
+      color: black;
+      animation: colorChangeSphere .5s forwards;
+      animation-delay: .5s;
+    }
+
+    nav {
+      margin-left: auto; /* Pushes the nav menu to the right */
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #007bff;
+      font-size: 1em;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes colorChangeTrade {
+      0% { color: black; }
+      50% { color: red; }
+      100% { color: black; }
+    }
+
+    @keyframes colorChangeSphere {
+      0% { color: black; }
+      50% { color: red; }
+      100% { color: black; }
+    }
+
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 60px); /* Adjusting for the header height */
+    }
+
+    .tabs-container {
+      width: 400px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .tabs-header {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      border-radius: 8px 8px 0 0;
+      background-color: #f1f1f1;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-bottom: none;
+      font-weight: bold;
+    }
+
+    .tab.active {
+      background-color: white;
+      border-color: #ccc;
+      border-bottom: 1px solid transparent;
+    }
+
+    .tab-content {
+      padding: 20px;
+    }
+
+    .tab-content form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-content h2 {
+      margin-bottom: 10px;
+    }
+
+    .tab-content label {
+      margin-bottom: 5px;
+    }
+
+    .tab-content input[type="text"],
+    .tab-content input[type="password"] {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .tab-content button {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007BFF; /* Button color */
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .tab-content button:hover {
+      background-color: #0056b3; /* Button hover color */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="https://i.postimg.cc/9fcGJHNz/BULL-LOGO.png" alt="Bull Logo">
+        <h1><span class="trade">Trade</span><span class="sphere">Sphere</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/auth">Log In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="auth-container">
+    <div class="tabs-container">
+      <div class="tabs-header">
+        <div class="tab active" data-tab="signup">Sign Up</div>
+        <div class="tab" data-tab="login">Log In</div>
+      </div>
+      <div class="tab-content" id="signup">
+        <!-- Form for Sign Up -->
+        <form action="/auth/sign-up" method="POST">
+          <h2>Sign Up</h2>
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" required />
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+      <div class="tab-content" id="login" style="display: none;">
+        <!-- Form for Log In -->
+        <form action="/auth/login" method="POST">
+          <h2>Log In</h2>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <button type="submit">Log In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

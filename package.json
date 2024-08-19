@@ -2,17 +2,23 @@
   "name": "tradesphere-crud",
   "version": "1.0.0",
   "description": "## Application Description TradeSphere is a straightforward application designed for tracking and managing a trading portfolio. Users can add, view, update, and delete trades, and see live stock prices through integration with financial APIs. The application provides a simple and effective way to manage and monitor trading activities.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "axios": "^1.7.3",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
+    "ej": "^1.0.4",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "mongoose": "^8.5.2"
+    "express-session": "^1.18.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.5.2",
+    "morgan": "^1.10.0"
   }
 }

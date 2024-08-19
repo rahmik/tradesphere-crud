@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeSphere</title>
+  <link rel="stylesheet" href="/styles/home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, pink 40%, red 100%);
+    }
+
+    header {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  border-bottom: 4px solid #d81b60;
+  box-shadow: 0 1px 0 #b71c1c;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo img {
+  height: 70px;
+  margin-right: 10px;
+  margin-bottom: 13px;
+}
+
+.header-logo h1 {
+  font-family: 'Quantico', sans-serif;
+}
+
+.header-logo .trade {
+  color: black;
+  animation: colorChangeTrade .5s forwards;
+}
+
+.header-logo .sphere {
+  color: black;
+  animation: colorChangeSphere .5s forwards;
+  animation-delay: .5s;
+}
+
+nav {
+  margin-left: auto; /* Pushes the nav menu to the right */
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1em;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 60px);
+      text-align: center;
+      background-color: transparent;
+    }
+
+    .main-content {
+      max-width: 600px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    h2 {
+      font-family: 'Clash Display', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 6.0em;
+      margin-bottom: -1px;
+      color: #333;
+      letter-spacing: 1.5px;
+      line-height: 1;
+      position: relative;
+    }
+
+    .line1, .line2 {
+      white-space: nowrap;
+      display: inline-block;
+      opacity: 0; /* Hide initially for the stamp effect */
+      animation: stampEffect 0.5s ease-in-out forwards;
+    }
+
+    .line1 {
+      animation-delay: 1s; /* "TRADE SMARTER" slams first */
+    }
+
+    .line2 {
+      animation-delay: 1.5s; /* "NOT HARDER" slams second */
+    }
+
+    @keyframes stampEffect {
+      0% {
+        transform: scale(4);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .highlighted-text {
+      color: #fce4ec; /* Very light pink fill */
+      text-shadow:
+        1px 1px 0 #d81b60, /* Hot pink outline */
+        -1px -1px 0 #d81b60,
+        1px -1px 0 #d81b60,
+        -1px 1px 0 #d81b60;
+    }
+
+    h3 {
+      font-family: 'General Sans', sans-serif; 
+      font-size: 1.5em;
+      font-weight: 400; 
+      color: #480101;
+      margin-bottom: 150px;
+    }
+
+    .signup-btn {
+      position: relative;
+      top: -100px;
+      padding: 15px 20px;
+      font-size: 1em;
+      background-color: #add8e6;
+      color: #4169e1;
+      border: 2px solid #4169e1;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .signup-btn:hover {
+      background-color: #d81b60;
+      color: #ffffff;
+      border-color: #d81b60;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="https://i.postimg.cc/9fcGJHNz/BULL-LOGO.png" alt="Bull Logo">
+        <h1><span class="trade">Trade</span><span class="sphere">Sphere</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/auth">Log In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="main-content">
+      <h2>
+        <span class="line1">TRADE <span class="highlighted-text">SMARTER,</span></span><br>
+        <span class="line2">NOT <span class="highlighted-text2">HARDER.</span>
+      </h2>
+      <h3>Track and manage your trades with ease.<br>Create portfolios, record trades, and stay organized—<br>all in one simple, powerful tool.</h3>
+      <a href="/auth"><button id="signupButton" class="signup-btn">Sign Up for Free</button></a>
+    </div>
+  </main>
+</body>
+</html>

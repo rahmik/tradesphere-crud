@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Manual Portfolio</title>
+  <link rel="stylesheet" href="/styles/create-portfolio.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="https://i.postimg.cc/9fcGJHNz/BULL-LOGO.png" alt="Bull Logo">
+        <h1><span class="trade">Trade</span><span class="sphere">Sphere</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/auth">Log In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="create-portfolio-container">
+      <h1>Create Manual Portfolio</h1>
+      <p>Our enhanced portfolio version with support for Buy, Sell, Short, Buy to Cover Transactions, and much more.</p>
+      <a href="/auth/setup-portfolio" class="start-button">Start Creating with TradeSphere</a>
+    </div>
+  </main>
+</body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: rgb(240, 228, 230);
+  }
+
+  h1 {
+    font-family: 'General Sans', sans-serif; 
+  }
+
+  header {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    border-bottom: 4px solid #d81b60;
+    box-shadow: 0 1px 0 #b71c1c;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo img {
+    height: 70px;
+    margin-right: 10px;
+    margin-bottom: 13px;
+  }
+
+  .header-logo h1 {
+    font-family: 'Quantico', sans-serif;
+  }
+
+  .header-logo .trade {
+    color: black;
+    animation: colorChangeTrade .5s forwards;
+  }
+
+  .header-logo .sphere {
+    color: black;
+    animation: colorChangeSphere .5s forwards;
+    animation-delay: .5s;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin-left: 20px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1em;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+    background-color: transparent;
+  }
+
+  .create-portfolio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    background-color: #ffe4e1; /* Light pink background */
+    border: 5px solid #ff69b4; /* Thick hot pink border */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(135deg, #ffe4e1 0%, #ff69b4 100%); /* Light pink to hot pink gradient */
+  }
+
+  .create-portfolio-container h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333333;
+  }
+
+  .create-portfolio-container p {
+    margin-bottom: 30px;
+    color: #555555;
+    font-size: 1.2em;
+  }
+
+  .start-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+  }
+
+  .start-button:hover {
+    background-color: #0056b3;
+  }
+</style>

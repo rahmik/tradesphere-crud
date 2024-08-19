@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f8f9fa;
+      padding: 10px 20px;
+      border-bottom: 4px solid #d81b60;
+      box-shadow: 0 1px 0 #b71c1c;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 70px;
+      margin-right: 10px;
+      margin-bottom: 13px;
+    }
+
+    .header-logo h1 {
+      font-family: 'Quantico', sans-serif;
+    }
+
+    .header-logo .trade {
+      color: black;
+      animation: colorChangeTrade .5s forwards;
+    }
+
+    .header-logo .sphere {
+      color: black;
+      animation: colorChangeSphere .5s forwards;
+      animation-delay: .5s;
+    }
+
+    nav {
+      margin-left: auto; /* Pushes the nav menu to the right */
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #007bff;
+      font-size: 1em;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .portfolio-container {
+      width: 90%;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      color:rgb(81, 81, 215);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    #search-box {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    #add-symbol-btn {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #add-symbol-btn:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      width: 100%;
+      background-color: white;
+      border: 1px solid #ddd;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .dropdown-item {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f1f1f1;
+    }
+
+    #add-new-row-btn {
+      padding: 10px 15px;
+      background-color:rgb(84, 84, 206);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .portfolio-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed; /* Ensures columns stay aligned */
+    }
+
+    .portfolio-table th, .portfolio-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .portfolio-table th {
+      background-color: #f9f9f9;
+      font-weight: bold;
+    }
+
+    .portfolio-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .portfolio-table .action-btns {
+      display: flex;
+      gap: 5px;
+    }
+
+    .delete-btn {
+      padding: 5px 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .delete-btn:hover {
+      background-color: #c62828;
+    }
+
+    .shares-input, .price-input, .last-price-input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .shares-input:focus, .price-input:focus, .last-price-input:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="https://i.postimg.cc/9fcGJHNz/BULL-LOGO.png" alt="Bull Logo">
+        <h1><span class="trade">Trade</span><span class="sphere">Sphere</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/auth">Log In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="portfolio-container">
+    <header>
+      <h1>My Portfolio / <%= portfolioName %></h1>
+      <p>Currency: <%= portfolioCurrency %></p>
+    </header>
+
+    <div class="search-container">
+      <input type="text" id="search-box" placeholder="Search for ticker symbols..." />
+      <button id="add-symbol-btn" disabled>Add Symbol</button>
+      <div id="dropdown" class="dropdown-content">
+        <!-- Search results will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <button id="add-new-row-btn">Add New Row</button>
+
+    <table class="portfolio-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Shares</th>
+          <th>Purchase Price</th>
+          <th>Last Price</th>
+          <th>Market Value</th>
+          <th>Total Cost</th>
+          <th>Today's Gain (Unrealized)</th>
+          <th>Total Gain (Unrealized)</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (portfolioItems && portfolioItems.length > 0) { %>
+          <% portfolioItems.forEach(item => { %>
+            <tr>
+              <td><%= item.symbol %></td>
+              <td><input type="number" value="<%= item.shares %>" min="0" step="1" class="shares-input" /></td>
+              <td><input type="number" value="<%= item.purchasePrice %>" step="0.01" class="price-input" /></td>
+              <td><input type="number" value="<%= item.lastPrice %>" step="0.01" class="last-price-input" /></td>
+              <td><%= item.marketValue %></td>
+              <td><%= item.totalCost %></td>
+              <td><%= item.todayGain %></td>
+              <td><%= item.totalGain %></td>
+              <td><%= item.status %></td>
+              <td class="action-btns">
+                <button class="delete-btn">Delete</button>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="10">No portfolio items available</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="/scripts/portfolio-view.js"></script>
+</body>
+</html>
